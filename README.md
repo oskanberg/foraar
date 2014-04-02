@@ -1,7 +1,6 @@
 # forår
 forår is a (pure js) plant evolution simulation. forår is the Danish word for 'spring'.
 
----
 ##Simulation
 ### Plants
 Plants consist of stems and flowers.
@@ -41,7 +40,6 @@ HEIGHT
 ```
 Note that ```HEIGHT``` and ```WIDTH``` do not refer to the height and width of the canvas as it is displayed in the page. They refer to the height and width of the simulation area, which is projected onto a full-screen canvas.
 
----
 ## Graphics & Compatibility
 The simulation is displayed in a low resolution, mostly for aesthetic reasons.
 
