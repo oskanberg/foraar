@@ -146,11 +146,11 @@ Nature.prototype.simulate = function() {
     setInterval(this.grow_all_plants.bind(this), 1000 / GROWTH_PER_SECOND);
     setInterval(this.sample_sunbeam.bind(this), 1000 / SUN_PER_SECOND);
     setInterval(this.sample_honeybee.bind(this), 1000 / BEES_PER_SECOND);
-    setInterval(function () {
-        for (var i = 0, plant; plant = this.plants[i++];) {
-            console.log(plant.chromosome.grow_flower_likelihood);
-            console.log(plant.chromosome.growth_direction_bias);
-        }
-        console.log('=================================================================');
-    }.bind(this), 5000);
+    //setInterval(function () {
+    //    for (var i = 0, plant; plant = this.plants[i++];) {
+    //        console.log(plant.chromosome.grow_flower_likelihood);
+    //        console.log(plant.chromosome.growth_direction_bias);
+    //    }
+    //    console.log('=================================================================');
+    //}.bind(this), 5000);
 };
