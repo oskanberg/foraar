@@ -16,6 +16,15 @@ Graphics = function(image_width, image_height, projector_id) {
     this.canvas.height = image_height;
     this.context = this.canvas.getContext('2d');
     this.render_image = new Image();
+
+    // whenever render_image gets new data, redraw
+    this.render_image.onload = () => {
+      this.render_context.imageSmoothingEnabled = false;
+      this.render_context.webkitImageSmoothingEnabled = false;
+      this.render_context.mozImageSmoothingEnabled = false;
+      this.render_context.drawImage(this.render_image, 0, 0, this.render_canvas.width, this.render_canvas.height);
+    };
+
     this.render_canvas = document.getElementById(projector_id);
     this.render_context = this.render_canvas.getContext('2d');
     this.render_canvas.width = window.innerWidth;
@@ -59,10 +68,6 @@ Graphics.prototype.render = function() {
     if (this.new_data && this.rendered >= 3) {
         this.rendered = 0;
         this.render_image.src = this.canvas.toDataURL();
-        this.render_context.imageSmoothingEnabled = false;
-        this.render_context.webkitImageSmoothingEnabled = false;
-        this.render_context.mozImageSmoothingEnabled = false;
-        this.render_context.drawImage(this.render_image, 0, 0, this.render_canvas.width, this.render_canvas.height);
         this.new_data = false;
     }
 };
